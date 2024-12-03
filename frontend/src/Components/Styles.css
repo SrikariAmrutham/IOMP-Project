@@ -1,0 +1,429 @@
+/*Login compnent*/
+
+  .auth-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f7f6f6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+    .password-container {
+    position: relative;
+  }
+  
+  .password-container input {
+    width: 100%;
+    padding-right: 30px; 
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px; 
+  }
+  
+  .main-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+  
+  .main-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .links-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  
+  .link {
+    color: #010101;
+    cursor: pointer;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .success {
+    color: green;
+    margin-bottom: 10px;
+  }
+  
+
+
+  /*Home component*/
+
+  /* Styles.css */
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter-container h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+.filter-container select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+}
+
+.filter-container select:hover {
+  border-color: #888;
+}
+
+.questions-list {
+  margin-top: 20px;
+}
+
+.questions-list h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 5px;
+}
+
+.questions-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.questions-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.questions-list li:hover {
+  background-color: #f0f0f5;
+}
+
+.questions-list li:last-child {
+  border-bottom: none;
+}
+
+.questions-list li .difficulty {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.questions-list li .difficulty.easy {
+  background-color: #e6ffed;
+  color: #2d8c5a;
+}
+
+.questions-list li .difficulty.medium {
+  background-color: #fff4e5;
+  color: #b5892e;
+}
+
+.questions-list li .difficulty.Hard {
+  background-color: #ffe6e6;
+  color: #b92b27;
+}
+
+
+
+/* question details styles*/
+
+/* Styles.css */
+
+
+
+.question-details-container {
+  display: flex;
+  
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.question-details {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  background-color: #ffffff;
+}
+
+.question-details h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.question-details p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.question-details ul {
+  padding-left: 1rem;
+  list-style-type: none;
+}
+
+.question-details ul li {
+  margin-bottom: 0.5rem;
+}
+
+.question-details h4 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.language-selector {
+  margin-bottom: 1rem;
+}
+
+.language-selector label {
+  font-weight: bold;
+  color: #555;
+}
+
+.language-selector select {
+  padding: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.code-editor {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.submit-button {
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.loading-text {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+}
+
+.test-results {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.test-results h4 {
+  margin-bottom: 10px;
+}
+
+.test-case-result {
+  margin: 5px 0;
+}
+
+/* Right-side Editor and Submission Area */
+.editor-container {
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f3f4f6;
+}
+
+.editor-container h4 {
+  color: #333;
+}
+
+.editor-container .submit-button {
+  width: 100%;
+}
+
+/*github*/
+.save-button {
+  background-color: #2ea44f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #24963e;
+}
+
+.save-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+.question-subheading {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.question-details ul {
+  padding-left: 20px;
+}
+
+.submit-button,
+.save-button,
+.visualizer-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.submit-button:disabled,
+.save-button:disabled,
+.visualizer-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: red;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+
+.forums-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.new-post input, .new-post textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.new-post button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.posts .post {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.posts .post .comments .new-comment textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.posts .post .comments .new-comment button {
+  margin-top: 10px;
+  padding: 5px 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
