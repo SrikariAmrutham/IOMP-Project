@@ -1,0 +1,4 @@
+FROM python:3.9
+WORKDIR /code
+COPY ./user-submissions/Main.py /code/Main.py
+CMD ["python", "Main.py"]
