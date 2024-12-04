@@ -33,7 +33,6 @@ const Home = () => {
   };
 
   const handleQuestionClick = (questionId) => {
-    console.log(questionId);
     navigate(`/question/${questionId}`);
   };
 

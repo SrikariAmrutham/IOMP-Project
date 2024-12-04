@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../UserContext';  // Import useUser from context
+import { useUser } from '../UserContext'; // Import useUser from context
 import './Styles.css';
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
       const response = await axios.post('http://localhost:5000/login', { name, password });
       setSuccess('Login successful!');
       setError('');
-      setUser(response.data.user);  // Set user data in context
+      setUser(response.data.user);  // Set user data in context and localStorage
       navigate('/home', { replace: true });
     } catch (err) {
       setError(err.response?.data?.message || 'An error occurred');

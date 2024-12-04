@@ -69,7 +69,7 @@
     background-color: #c0392b;
   }
    */
-
+/* 
 
    .navbar {
     display: flex;
@@ -126,5 +126,93 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+   */
+
+   .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2rem; /* Reduced top and bottom padding */
+    background-color: #000000;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .navbar-brand {
+    cursor: pointer;
+  }
+  .navbar-brand h2 {
+    color: white;
+  }
+  
+  .navbar-search {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 2rem;
+    position: relative; /* Important for positioning search results */
+  }
+  
+  .navbar-search input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px; /* Limit the width */
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logout-button, .login-button {
+    padding: 0.5rem 1rem;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover, .login-button {
+    background-color: #c0392b;
+  }
+  
+  .search-results {
+    position: absolute;
+    top: 100%; /* Directly below the input */
+    left: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .search-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .search-result-item {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .search-result-item:hover {
+    background-color: #f4f4f4;
   }
   

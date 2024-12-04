@@ -35,6 +35,11 @@ const QuestionDetails = () => {
   }, [code, language, question]);
   
   useEffect(() => {
+    if (!user || !user.id) {
+      setError('Please log in to view the question');
+      setLoading(false);
+      return;
+    }
     axios.get(`http://localhost:5000/questions/${id}`, {
       params: { userId: user.id, language }
     })
@@ -52,6 +57,11 @@ const QuestionDetails = () => {
     .catch((error) => {
       console.error('Error fetching question details:', error);
       setLoading(false);
+      if (error.response && error.response.status === 401) {
+        setError('Please log in to view the question');
+      } else {
+        setError('An error occurred while fetching the question details');
+      }
     });
   }, [id, language]);
 
@@ -130,7 +140,9 @@ const QuestionDetails = () => {
   const handleLanguageChange = (e) => setLanguage(e.target.value);
 
   if (loading) return <div className="loading-text">Loading...</div>;
-  if (!question) return <div className="loading-text">Question not found.</div>;
+  
+  if (!question) return <div className="loading-text">Question not found. Please Login again to view.</div>;
+  
 
   return (
     <div className="question-details-container">
