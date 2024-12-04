@@ -8,16 +8,43 @@ import User from './models/User.js';
 import Submission from './models/Submission.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { env } from 'process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+import axios from 'axios';
+
+// Fetch test case file from GitHub
+async function fetchTestCasesFromGitHub(questionNumber) {
+  const GITHUB_USERNAME = 'SrikariAmrutham'; // Replace with your GitHub username
+  const GITHUB_REPO = 'TestCases';   // Replace with your repository name
+  const TEST_CASES_PATH = `testCases/qno_${questionNumber}.txt`; // File path in the repo
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // GitHub token for private repos
+
+  const url = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${TEST_CASES_PATH}`;
+
+  try {
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: `Bearer ${GITHUB_TOKEN}`, // For private repositories
+        Accept: 'application/vnd.github.v3.raw', // Fetch raw content
+      },
+    });
+
+    return response.data; 
+  } catch (error) {
+    console.error('Error fetching test cases from GitHub:', error.response?.data || error.message);
+    throw new Error('Failed to fetch test cases');
+  }
+}
+
 // Normalize line endings for comparison
 function normalizeLineEndings(str) {
   return str
-    .replace(/\r\n/g, '\n')  // Normalize Windows line endings to Unix
-    .replace(/\s+$/gm, '')   // Remove trailing spaces on each line
-    .trim();                 // Trim leading and trailing whitespace
+    .replace(/\r\n/g, '\n')  
+    .replace(/\s+$/gm, '')   
+    .trim();                 
 }
 
 // Parse test cases from the test case file
@@ -38,7 +65,7 @@ function parseTestCases(fileContent) {
 }
 
 // Execute the code in a Docker container
-function executeCode(fileName, language, input) {
+function executeCode(language, input) {
   return new Promise(async (resolve) => {
     try {
       // Create a temporary input file for the test case
@@ -91,16 +118,16 @@ export const codeSubmissionHandler = async (req) => {
     await fs.promises.writeFile(filePath, code);
 
     // Read and parse the test cases
-    const testCasesFilePath = path.join(__dirname, 'test-cases', `${question.qno}.txt`);
-    const testCasesFile = await fs.promises.readFile(testCasesFilePath, 'utf8');
-    const testCases = parseTestCases(testCasesFile);
+    const testCasesFileContent = await fetchTestCasesFromGitHub(question.qno);
+    const testCases = parseTestCases(testCasesFileContent);
+    console.log(testCases);
 
     // Execute the code for each test case
     const testResults = [];
     for (const testCase of testCases) {
       const { input, expectedOutput } = testCase;
 
-      const result = await executeCode(fileName, language, input);
+      const result = await executeCode(language, input);
       console.log('Execution result:', result);
 
       const normalizedExpected = normalizeLineEndings(expectedOutput);
