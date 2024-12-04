@@ -1,5 +1,5 @@
 import React from 'react';
-import CodeMirror from '@uiw/react-codemirror'; // Install this library via npm
+import CodeMirror from '@uiw/react-codemirror'; 
 
 const Editor = ({ code, onCodeChange }) => {
   return (
@@ -9,7 +9,7 @@ const Editor = ({ code, onCodeChange }) => {
       onChange={(value) => onCodeChange(value)}
       options={{
         theme: 'material',
-        mode: 'javascript', // You can change it based on the language
+        mode: 'javascript', 
         lineNumbers: true,
       }}
     />
