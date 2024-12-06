@@ -37,6 +37,8 @@ const Login = () => {
     try {
       const { data } = await axios.get('http://localhost:5000/auth/url');
       window.location.href = data.url; 
+      console.log(data.url);
+      // setUser(data.i);
     } catch (err) {
       setError('Failed to initiate OAuth login');
     }

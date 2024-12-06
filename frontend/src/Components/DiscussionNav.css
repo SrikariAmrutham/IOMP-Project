@@ -1,0 +1,59 @@
+/* SubNavbar container */
+.sub-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    border-bottom: 1px solid #2e7d32;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Post button styling */
+  .post-button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .post-button:hover {
+    background-color: #1b5e20;
+  }
+  
+  /* Filter dropdown styling */
+  .filter-dropdown {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #2e7d32;
+    border-radius: 5px;
+    background-color: white;
+    color: #2e7d32;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .filter-dropdown:focus {
+    border-color: #1b5e20;
+    outline: none;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sub-navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  
+    .post-button,
+    .filter-dropdown {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  

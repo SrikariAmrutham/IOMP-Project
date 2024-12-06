@@ -50,7 +50,7 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #2b7d54;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
@@ -58,7 +58,7 @@
   }
   
   .main-button:hover {
-    background-color: #0056b3;
+    background-color: #2b7d54;
   }
   
   .links-container {
@@ -379,51 +379,4 @@ body {
   color: red;
   margin-top: 20px;
   font-weight: bold;
-}
-
-
-.forums-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.new-post input, .new-post textarea {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.new-post button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.posts .post {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-
-.posts .post .comments .new-comment textarea {
-  width: 100%;
-  margin-top: 10px;
-  padding: 5px;
-}
-
-.posts .post .comments .new-comment button {
-  margin-top: 10px;
-  padding: 5px 15px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }

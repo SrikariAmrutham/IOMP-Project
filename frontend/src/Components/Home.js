@@ -7,7 +7,7 @@ import { useUser } from '../UserContext';
 const Home = () => {
   
   const { user } = useUser();
-  console.log('User home', user);
+  console.log('user in home ', user);
   const [questions, setQuestions] = useState([]);
   const [filteredQuestions, setFilteredQuestions] = useState([]);
   const [difficulty, setDifficulty] = useState('all');
@@ -33,6 +33,7 @@ const Home = () => {
   };
 
   const handleQuestionClick = (questionId) => {
+    console.log('navigating');
     navigate(`/question/${questionId}`);
   };
 

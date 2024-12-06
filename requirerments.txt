@@ -1,0 +1,13 @@
+bcryptjs
+cookie-parser
+cors
+dotenv
+express
+jsonwebtoken
+mongoose
+node-fetch
+query-string
+axios
+fs-extra
+path
+child_process

@@ -6,7 +6,7 @@ import axios from 'axios';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const {user} = useUser();
+  const { user } = useUser();
   const [questions, setQuestions] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredQuestions, setFilteredQuestions] = useState([]);
@@ -20,21 +20,19 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    
     localStorage.removeItem('user'); // Clear localStorage
     window.location.reload();
     navigate('/');
   };
-  
 
   const handleSearch = (query) => {
     setSearchQuery(query);
-  
+
     if (query.trim() === '') {
       setFilteredQuestions([]);
       return;
     }
-  
+
     const results = questions.filter((question) => {
       if (!isNaN(query)) {
         return question.qno?.toString() === query; // Exact match for numbers
@@ -47,12 +45,9 @@ const Navbar = () => {
         )) // Ensure topics is an array
       );
     });
-  
+
     setFilteredQuestions(results);
   };
-  
-
-  
 
   return (
     <div className="navbar">
@@ -89,7 +84,13 @@ const Navbar = () => {
         </div>
       )}
 
-    <div className="navbar-actions">
+      {/* Navigation Links */}
+      <div className="nav-links">
+        <a className="nav-link" onClick={() => navigate('/home')}>Challenges</a>
+        <a className="nav-link" onClick={() => navigate('/forum')}>Forums</a>
+      </div>
+
+      <div className="navbar-actions">
         {user ? (
           <button className="logout-button" onClick={handleLogout}>
             Logout
@@ -99,7 +100,6 @@ const Navbar = () => {
         )}
       </div>
     </div>
-
   );
 };
 

@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../UserContext';
 
-const OAuthCallback = ({ setUser }) => {
+const OAuthCallback = () => {
+  const {setUser} = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,6 +16,7 @@ const OAuthCallback = ({ setUser }) => {
         try {
           const response = await axios.get(`http://localhost:5000/auth/token?code=${code}`);
           setUser(response.data.user); 
+          console.log('respone user in oauth', response.data.user);
           navigate('/home'); 
         } catch (error) {
           console.error('OAuth error:', error);
